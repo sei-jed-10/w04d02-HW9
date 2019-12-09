@@ -8,16 +8,16 @@
 
 students = [
   {
-      first_name: 'Lamees',
-      last_name: 'AlFallaj'
+      first_name: 'Abdulrahman',
+      last_name: 'Alsulami'
   },
   {
-      first_name: 'Aisha',
-      last_name: 'AlDabbagh',
+      first_name: 'Leena',
+      last_name: 'Yaseen',
   },
   {
-      first_name: 'Abdulwahhab',
-      last_name: 'AlBalla',
+      first_name: 'Sara',
+      last_name: 'Alraddadi',
   }
 ]
 
@@ -28,9 +28,9 @@ upper_case_full_names = []
 ### Answer
 
 ```rb
-LAMEES ALFALLAJ
-AISHA ALDABBAGH
-ABDULWAHHAB ALBALLA
+ABDULRAHHMAN ALSULAMI
+LEENA YASEEN
+SARA ALRADDADI
 ```
 
 ## 2. Find the first order for each user
@@ -39,7 +39,7 @@ ABDULWAHHAB ALBALLA
 
 users = [
   {
-      name: 'Fahad',
+      name: 'Bandar',
       orders: [
           {
               description: 'a bike'
@@ -47,7 +47,7 @@ users = [
       ]
   },
   {
-      name: 'Abdulrahman',
+      name: 'Hatim',
       orders: [
           {
               description: 'bees'
@@ -58,7 +58,7 @@ users = [
       ]
   },
   {
-      name: 'Muhannad',
+      name: 'Mohammed',
       orders: [
           {
               description: 'a MacBook'
@@ -113,7 +113,7 @@ people = [
       ]
   },
   {
-      name: 'Saud',
+      name: 'Bandari',
       transactions: [
           {
               type: 'BIKES',
@@ -130,7 +130,7 @@ people = [
       ]
   },
   {
-      name: 'Norah',
+      name: 'Safwan',
       transactions: [
           {
               type: 'COFFEE',
@@ -158,8 +158,8 @@ coffee_average_per_person = []
 ```rb
 
 {:name=>"Sarah", :coffee_average=>5.93}
-{:name=>"Saud", :coffee_average=>4.43}
-{:name=>"Norah", :coffee_average=>37.28666666666667}
+{:name=>"Bandari", :coffee_average=>4.43}
+{:name=>"Safwan", :coffee_average=>37.28666666666667}
 
 ```
 
@@ -232,11 +232,11 @@ Write an infinite loop that will make you add all the your friends in the studen
 ```
 
 add a student
-Mohammed AlOfaysan
+Amal Algregri
 Do you want to continue ? (y/n)
 y
 add a student
-Raje AlHarthi
+Hanin Nouh
 Do you want to continue ? (y/n)
 y
 add a student
