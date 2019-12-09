@@ -233,3 +233,17 @@ p most_expensive_products_by_store
 price=0
 i +=1
 end
+
+
+########bonus
+arr = []
+while $input2 != 1
+p "Add student"
+ input = gets
+
+p "Do you want to continue ? (1) to quit"
+$input2 = gets.to_i
+
+arr.push(input)
+end
+p arr
