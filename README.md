@@ -4,6 +4,8 @@
 
 ## 1. Return an array of each Student's full name, upper-cased
 
+### Answer
+
 ```rb
 
 students = [
@@ -23,20 +25,17 @@ students = [
 
 upper_case_full_names = []
 
-```
+students.each do |student|
+upper_case_full_names.push "#{student[:first_name].upcase} #{student[:last_name].upcase}"
+end
 
-### Answer
+puts upper_case_full_names
 
-```rb
-ABDULRAHHMAN ALSULAMI
-LEENA YASEEN
-SARA ALRADDADI
 ```
 
 ## 2. Find the first order for each user
 
 ```rb
-
 users = [
   {
       name: 'Bandar',
@@ -76,23 +75,20 @@ users = [
   }
 ]
 
-first_order_for_each_user = []
+users.each do |desc| 
+  puts " #{desc[:orders].first} "
+end
 
-```
-
-### Answer
-
-```rb
-
-{:description=>"a bike"}
-{:description=>"bees"}
-{:description=>"a MacBook"}
+#{:description=>"a bike"}
+#{:description=>"bees"}
+#{:description=>"a MacBook"}
 
 ```
 
 ## 3. Find the average amount spent on coffee, per transaction, for each person
 
 ```rb
+
 
 people = [
   {
@@ -148,18 +144,24 @@ people = [
   }
 ]
 
-
 coffee_average_per_person = []
+sum=0
+many=0
 
-```
+people.map do |p|
 
-### Answer
+  p[:transactions].map do |a|
+    if a[:type] == 'COFFEE'
+     sum+= a[:amount]
+     many+=1
+    end
+  end  
 
-```rb
+coffee_average= sum / many
+coffee_average_per_person.push "#{p[:name]}, #{coffee_average}"
+end
 
-{:name=>"Sarah", :coffee_average=>5.93}
-{:name=>"Bandari", :coffee_average=>4.43}
-{:name=>"Safwan", :coffee_average=>37.28666666666667}
+puts coffee_average_per_person
 
 ```
 
@@ -211,16 +213,19 @@ stores = [
 
 most_expensive_products_by_store = []
 
-```
+stores.map do |store|
+  most_expensive_product = store[:products].max_by do |product|
+    product[:price]
+  end  
+  puts "store_name=> #{store[:store_name]} ,most_expensive_product=> #{most_expensive_product[:price]} "
 
-### Answer
+end 
 
-```rb
 
-{:store_name=>"Jarir", :most_expensive_product=>{:description=>"Titanium", :price=>9384.33}}
-{:store_name=>"Tamimi", :most_expensive_product=>{:description=>"Silver", :price=>654.44}}
-{:store_name=>"Souq", :most_expensive_product=>{:description=>"Sapphire", :price=>899.33}}
 
+#{:store_name=>"Jarir", :most_expensive_product=>{:description=>"Titanium", :price=>9384.33}}
+#{:store_name=>"Tamimi", :most_expensive_product=>{:description=>"Silver", :price=>654.44}}
+#{:store_name=>"Souq", :most_expensive_product=>{:description=>"Sapphire", :price=>899.33}}
 ```
 
 # Bonus
