@@ -23,6 +23,10 @@ students = [
 
 upper_case_full_names = []
 
+for student in students do
+  upper_case_full_names.push "#{student[:first_name].upcase} #{student[:last_name].upcase}"
+end
+
 ```
 
 ### Answer
@@ -77,6 +81,10 @@ users = [
 ]
 
 first_order_for_each_user = []
+
+for user in users do
+  first_order_for_each_user.push user[:orders][0]
+end
 
 ```
 
@@ -151,6 +159,18 @@ people = [
 
 coffee_average_per_person = []
 
+for person in people do
+  avg_coffee = {}
+  avg_coffee[:name] = person[:name]
+  num_of_trans = 0
+  total = 0
+  for trans in person[:transactions] do
+    total += trans[:amount] and num_of_trans += 1 if trans[:type] == 'COFFEE'
+  end
+  avg_coffee[:coffee_average] = total / num_of_trans
+  coffee_average_per_person.push avg_coffee
+end
+
 ```
 
 ### Answer
@@ -211,6 +231,13 @@ stores = [
 
 most_expensive_products_by_store = []
 
+for store in stores do
+  mep = {}
+  mep[:store_name] = store[:store_name]
+  mep[:most_expensive_product] = store[:products].max_by{|x| x[:price]}
+  most_expensive_products_by_store.push mep
+end
+
 ```
 
 ### Answer
@@ -226,6 +253,16 @@ most_expensive_products_by_store = []
 # Bonus
 
 Write an infinite loop that will make you add all the your friends in the students list and after each add will ask if you want to quit the loop (yes/no) if the user choose no print all the students array
+
+```rb
+s_list = []
+while true
+  puts "add a student"
+  s_list.push gets.chomp
+  puts "Do you want to continue ? (y/n)"
+  break if gets.chomp == "y"
+end
+```
 
 ### Answer
 
