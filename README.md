@@ -27,6 +27,13 @@ upper_case_full_names = []
 
 ### Answer
 
+students.each do |a|   # this is an array of arrays of hashes
+
+      upper_case_full_names.push(["#{a[:first_name].upcase} #{a[:last_name].upcase}"])
+      p upper_case_full_names
+end
+
+
 ```rb
 ABDULRAHHMAN ALSULAMI
 LEENA YASEEN
@@ -83,6 +90,14 @@ first_order_for_each_user = []
 ### Answer
 
 ```rb
+users.each do |a|  
+first_order_for_each_user.push(a[:orders][0])
+
+end
+
+
+ puts  first_order_for_each_user
+
 
 {:description=>"a bike"}
 {:description=>"bees"}
@@ -157,6 +172,25 @@ coffee_average_per_person = []
 
 ```rb
 
+amnt = 0
+num = 0
+avr =0
+ 
+people.each do |a|  
+
+a[:transactions].map do |b|
+if b[:type] == 'COFFEE' then amnt += b[:amount] and num +=1
+ end
+avr = amnt/num
+# puts b[:amount]
+end
+coffee_average_per_person.push("name => #{a[:name]},coffee_average=>#{avr}")
+end
+
+
+ puts  coffee_average_per_person
+
+
 {:name=>"Sarah", :coffee_average=>5.93}
 {:name=>"Bandari", :coffee_average=>4.43}
 {:name=>"Safwan", :coffee_average=>37.28666666666667}
@@ -217,6 +251,19 @@ most_expensive_products_by_store = []
 
 ```rb
 
+most_expensive_products_by_store = []
+m = 0
+ stores.map do |a|
+
+m = a[:products].max_by do |p|
+  p[:price]
+end
+
+most_expensive_products_by_store.push(":store_name=> #{a[:store_name]},:most_expensive_product=>#{m[:price]}")
+end
+
+puts most_expensive_products_by_store
+
 {:store_name=>"Jarir", :most_expensive_product=>{:description=>"Titanium", :price=>9384.33}}
 {:store_name=>"Tamimi", :most_expensive_product=>{:description=>"Silver", :price=>654.44}}
 {:store_name=>"Souq", :most_expensive_product=>{:description=>"Sapphire", :price=>899.33}}
@@ -228,6 +275,20 @@ most_expensive_products_by_store = []
 Write an infinite loop that will make you add all the your friends in the students list and after each add will ask if you want to quit the loop (yes/no) if the user choose no print all the students array
 
 ### Answer
+
+
+stu_arr = []
+loop do
+  puts "Add a student :"
+  input = gets.chomp
+  stu_arr.push(input)
+  puts "Do you want to continue ? (y/n)"
+  input2 = gets.chomp
+  break if input2 == "n"
+end
+print stu_arr
+
+
 
 ```
 
