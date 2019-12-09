@@ -1,4 +1,4 @@
-
+###########1
 students = [
   {
       first_name: 'Abdulrahman',
@@ -26,7 +26,7 @@ full_name = students[i][:first_name]+" "+students[i][:last_name]
 
 
 
-////
+############2
 
 
 users = [
@@ -80,7 +80,7 @@ p first_order_for_each_user
 
 
 
-\\\\\\\\\\\\\\\\\\\\\
+############3
 
 
 people = [
@@ -164,3 +164,72 @@ j = 0
  p coffee_average_per_person
  
  end # do for
+
+
+
+###############4
+stores = [
+  {
+      store_name: 'Jarir',
+      products: [
+          {
+              description: 'Titanium',
+              price: 9384.33
+          },
+          {
+              description: 'Gold',
+              price: 345.54
+          }
+      ]
+  },
+  {
+      store_name: 'Tamimi',
+      products: [
+          {
+              description: 'Silver',
+              price: 654.44
+          },
+          {
+              description: 'Ruby',
+              price: 323.43
+          }
+      ]
+  },
+  {
+      store_name: 'Souq',
+      products: [
+          {
+              description: 'Opal',
+              price: 345.43
+          },
+          {
+              description: 'Sapphire',
+              price: 899.33
+          }
+      ]
+  }
+]
+ 
+i = 0
+while  i  < stores.length
+ j=0
+ price = 0
+ name = ""
+ most_expensive_products_by_store = []
+while j < stores[i][:products].length
+
+if stores[i][:products][j][:price] > price
+name = stores[i][:products][j][:description]
+price =stores[i][:products][j][:price]
+end#if
+j+=1
+end#for
+most_expensive_products_by_store.push(stores[i][:store_name])
+
+most_expensive_products_by_store.push(name)
+
+most_expensive_products_by_store.push(price)
+p most_expensive_products_by_store
+price=0
+i +=1
+end
