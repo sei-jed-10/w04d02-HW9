@@ -26,6 +26,12 @@ upper_case_full_names = []
 ```
 
 ### Answer
+upper_case_full_names = []
+
+students.each { |first_name|  
+upper_case_full_names.push(first_name[:first_name].upcase+" "+first_name[:last_name].upcase)
+} 
+puts upper_case_full_names
 
 ```rb
 ABDULRAHHMAN ALSULAMI
@@ -81,6 +87,12 @@ first_order_for_each_user = []
 ```
 
 ### Answer
+
+users.each { |name|
+
+first_order_for_each_user.push(name[:orders].first)
+} 
+puts first_order_for_each_user
 
 ```rb
 
@@ -156,6 +168,22 @@ coffee_average_per_person = []
 ### Answer
 
 ```rb
+people.each { |name|
+i=1
+total_amount=0
+average_for_person=0
+name[:transactions].each{ |type|
+if(type[:type]==="COFFEE")
+total_amount=total_amount+type[:amount]
+average_for_person= total_amount/i
+puts i
+i=i+1
+end
+}
+coffee_average_per_person.push(name[:name])
+coffee_average_per_person.push(average_for_person)
+} 
+p coffee_average_per_person
 
 {:name=>"Sarah", :coffee_average=>5.93}
 {:name=>"Bandari", :coffee_average=>4.43}
@@ -216,6 +244,20 @@ most_expensive_products_by_store = []
 ### Answer
 
 ```rb
+stores.each { |name|
+most_expensive_product=0
+most_expensive_product_des=""
+name[:products].each{ |price|
+if(price[:price]>=most_expensive_product)
+most_expensive_product=price[:price]
+most_expensive_product_des=price[:description]
+end
+}
+most_expensive_products_by_store.push(name[:store_name])
+most_expensive_products_by_store.push(most_expensive_product_des)
+most_expensive_products_by_store.push(most_expensive_product)
+} 
+p most_expensive_products_by_store
 
 {:store_name=>"Jarir", :most_expensive_product=>{:description=>"Titanium", :price=>9384.33}}
 {:store_name=>"Tamimi", :most_expensive_product=>{:description=>"Silver", :price=>654.44}}
@@ -230,6 +272,17 @@ Write an infinite loop that will make you add all the your friends in the studen
 ### Answer
 
 ```
+input = ""
+friends=""
+until input == "n" do
+  puts "add a student"
+  friends = gets.chomp
+  friends_arr.push(friends)
+  puts "Do you want to continue ? (y/n)"
+  input = gets.chomp
+end
+puts friends_arr
+
 
 add a student
 Amal Algregri
