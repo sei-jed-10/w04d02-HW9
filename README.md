@@ -23,7 +23,7 @@ students = [
 
 upper_case_full_names = []
 
-for student in students do
+students.map do |student|
   upper_case_full_names.push "#{student[:first_name].upcase} #{student[:last_name].upcase}"
 end
 
@@ -82,7 +82,7 @@ users = [
 
 first_order_for_each_user = []
 
-for user in users do
+users.map do |user|
   first_order_for_each_user.push user[:orders][0]
 end
 
@@ -159,12 +159,12 @@ people = [
 
 coffee_average_per_person = []
 
-for person in people do
+people.map do |person|
   avg_coffee = {}
   avg_coffee[:name] = person[:name]
   num_of_trans = 0
   total = 0
-  for trans in person[:transactions] do
+  person[:transactions].map do |trans|
     total += trans[:amount] and num_of_trans += 1 if trans[:type] == 'COFFEE'
   end
   avg_coffee[:coffee_average] = total / num_of_trans
@@ -231,7 +231,7 @@ stores = [
 
 most_expensive_products_by_store = []
 
-for store in stores do
+stores.map do |store|
   mep = {}
   mep[:store_name] = store[:store_name]
   mep[:most_expensive_product] = store[:products].max_by{|x| x[:price]}
