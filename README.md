@@ -168,15 +168,29 @@ people = [
 
 coffee_average_per_person = []
 
-people.map do |a1|
- 
- if a1[:type] == 'COFFEE'
-      puts a1[:amount] / 
+people.each do |a|
 
+  total_amount = 0
+  counter = 0
+  avg = 0
+
+    a[:transactions].map do |h|
+
+      if h[:type] === ("COFFEE")
+
+        counter +=1
+
+        total_amount +=h[:amount]
+
+        end
 
     end
-  end
+
+  avg =  total_amount/counter
+  coffee_average_per_person.push("name=>#{a[:name]}, coffee average=>#{avg}")
 end
+
+puts coffee_average_per_person
 
 ```
 
@@ -238,6 +252,27 @@ stores = [
 
 most_expensive_products_by_store = []
 
+stores.each do |s|
+
+  max_price = 0
+  product_desc = ''
+
+  s[:products].map do |h|
+
+      if h[:price] > max_price 
+        max_price = h[:price]
+        product_desc = h[:description]#this line took me 4 hours just to figure it out =)
+
+        #puts "#{s[:store_name]} =>#{product_desc]}: #{max_price}"
+      end
+
+    end
+ most_expensive_products_by_store.push("#{s[:store_name]} =>#{product_desc}: #{max_price}")
+
+end
+
+puts most_expensive_products_by_store
+
 ```
 
 ### Answer
@@ -255,7 +290,29 @@ most_expensive_products_by_store = []
 Write an infinite loop that will make you add all the your friends in the students list and after each add will ask if you want to quit the loop (yes/no) if the user choose no print all the students array
 
 ### Answer
+```rb
+students = []
+flag = true
+input = ''
 
+while flag == true
+
+  p "Add a student"
+  input = gets.chomp
+
+  students.push(input)
+
+  p "Do you want to continue ? (y/n)"
+  choice = gets.chomp
+
+  if choice == 'n'
+    flag = false
+  end
+  
+end
+
+p students
+```
 ```
 
 add a student
