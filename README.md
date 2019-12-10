@@ -21,11 +21,17 @@ students = [
   }
 ]
 
-upper_case_full_names = []
+upper_case_full_names = students.map do |student|
+      full_name = " #{student[:first_name]} #{student[:last_name]} "
+      full_name.upcase
+end 
+
+puts upper_case_full_names
+
 
 ```
 
-### Answer
+### OUTBOT
 
 ```rb
 ABDULRAHHMAN ALSULAMI
@@ -76,11 +82,16 @@ users = [
   }
 ]
 
-first_order_for_each_user = []
+ANSWER
+first_order_for_each_user = users.map do|order|
+  "#{order[:orders].first}"
+end
+puts first_order_for_each_user
+
 
 ```
 
-### Answer
+### OUTBOT
 
 ```rb
 
@@ -149,11 +160,29 @@ people = [
 ]
 
 
-coffee_average_per_person = []
+ANSWER
+
+coffee_average_per_person = people.map do |person|
+
+    coffee_sum = []
+    person[:transactions].map do |transaction|
+        if transaction[:type] == 'COFFEE'
+            coffee_sum.push(transaction[:amount])
+        end
+    end
+
+    { 
+    name: person[:name] , 
+    coffee_average: coffee_sum.reduce(:+) / coffee_sum.length 
+    }
+end
+
+puts coffee_average_per_person
+
 
 ```
 
-### Answer
+### OUTBOT
 
 ```rb
 
@@ -209,11 +238,23 @@ stores = [
   }
 ]
 
-most_expensive_products_by_store = []
+most_expensive_products_by_store = stores.map do |store|
+    expensive = store[:products].max_by do |product|
+        product[:price]
+    end  
 
+    {
+       sotre_name: store[:store_name] ,
+       most_expensive_product: store[:products],
+       price: expensive[:price]
+
+    }
+end 
+
+puts most_expensive_products_by_store
 ```
 
-### Answer
+### OUTBOT
 
 ```rb
 
@@ -229,6 +270,7 @@ Write an infinite loop that will make you add all the your friends in the studen
 
 ### Answer
 
+
 ```
 
 add a student
@@ -242,3 +284,12 @@ y
 add a student
 
 ```
+ANSWER
+```
+students_list = []
+while true do
+  puts "add a student name"
+  students_list.push gets.chomp
+  puts "Do you want to continue ? (yes/no)”
+  break if gets.chomp == “no”
+end
