@@ -24,8 +24,14 @@ students = [
 upper_case_full_names = []
 
 ```
+student1 = students[0].values
+p student1.join(" ").upcase
 
-### Answer
+student2 = students[1].values
+p student2.join(" ").upcase
+
+student3 = students[2].values
+p student3.join(" ").upcase
 
 ```rb
 ABDULRAHHMAN ALSULAMI
@@ -80,7 +86,9 @@ first_order_for_each_user = []
 
 ```
 
-### Answer
+puts first_order = users[0].values[1]
+puts first_order = users[1].values[1][0]
+puts first_order = users[2].values[1][0]
 
 ```rb
 
@@ -153,7 +161,29 @@ coffee_average_per_person = []
 
 ```
 
-### Answer
+#Sarah -------------------#
+ first = people[0]
+ coffee1 = first.to_a[1][1]
+  avg = coffee1[0].values[1] + coffee1[2].values[1] 
+  coffee_avg = avg /2
+  name1 = people[0].values[0]
+  p "name: #{name1}, coffee average: #{coffee_avg}" #output 
+#Bandari -------------------#
+  second = people[1]
+ coffee2 = second.to_a[1][1]
+  coffee2[2] 
+  coffee2_avg = coffee2[2].values[1] 
+  name2 = people[1].values[0]
+  p "name: #{name2}, coffee average: #{coffee2_avg}" #output 
+#Safwan -------------------#
+  third = people[2]
+ coffee3 = third.to_a[1][1]
+ coffee3
+ coffee3_avg = coffee3[0].values[1] + coffee3[1].values[1] + coffee3[2].values[1]
+  avrg = coffee3_avg / 3
+  name3 = people[2].values[0]
+   p "name: #{name3}, coffee average: #{avrg}" #output 
+  
 
 ```rb
 
@@ -212,8 +242,28 @@ stores = [
 most_expensive_products_by_store = []
 
 ```
+#jarir#
+  stores[0]
+ store_name1 = stores[0].values[0]
+ products = stores[0].values[1]
+  ex = products[0]
+ puts "store #{store_name1} , most expensive product: #{ex}"
 
-### Answer
+#tamimi#
+
+ stores[1]
+ store_name1 = stores[1].values[0]
+ products = stores[1].values[1]
+  ex = products[0]
+ puts "store #{store_name1} , most expensive product: #{ex}"
+
+#Souq#
+stores[2]
+ store_name1 = stores[2].values[0]
+ products = stores[2].values[1]
+  ex = products[1]
+ puts "store #{store_name1} , most expensive product: #{ex}"
+
 
 ```rb
 
@@ -227,7 +277,16 @@ most_expensive_products_by_store = []
 
 Write an infinite loop that will make you add all the your friends in the students list and after each add will ask if you want to quit the loop (yes/no) if the user choose no print all the students array
 
-### Answer
+### it did nt work.. but ll keep trying and resubmit : ) 
+puts "add all your friends in student list"
+loop do
+  puts "add a student"
+  input = gets.chomp
+  break if input == "name1"  and "name2"
+  
+end
+puts "You made it out! Congrats!"
+
 
 ```
 
