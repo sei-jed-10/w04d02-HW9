@@ -25,11 +25,8 @@ upper_case_full_names = []
 
  students.each do |i|
 
-    i.each do |key, value|
+  upper_case_full_names.push(i[:first_name].upcase+" "+i[:last_name].upcase.to_s)
 
-    upper_case_full_names.push("#{value}".upcase)
-
-  end
 
 end
 
@@ -90,19 +87,13 @@ users = [
 
 first_order_for_each_user = []
 
-users.each do |a1|
-  a1.each do |h1|
-    h1.each do |v|
+users.each do |v|
 
-        #if k == "description".to_sym 
-        #first_order_for_each_user.push("#{v[0]}")
-        p "#{v[0]}"
-        #end
+        first_order_for_each_user.push(v[:orders][0]) 
+
       end
-    end
-  end
  
- #p first_order_for_each_user
+ puts first_order_for_each_user
 
 ```
 
@@ -177,12 +168,10 @@ people = [
 
 coffee_average_per_person = []
 
-people.each do |a1|
-  a1.each do |h1|
-    puts "#{h1}"
-    h1.map do |a2|
+people.map do |a1|
  
-      puts "#{a2[2][0]}"
+ if a1[:type] == 'COFFEE'
+      puts a1[:amount] / 
 
 
     end
