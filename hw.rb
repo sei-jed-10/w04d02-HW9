@@ -127,18 +127,17 @@ people = [
   }
 ]
 
-
-coffee_average_per_person = []
-avg = {}
-people.each do |person|
-  person.each do |key,value|
-if value[:type] == COFFEE
-p "#{key}""#{value}"
-end
-  end
-end
-
-
+people.map do |person|
+    avg = 0
+    count = 0
+    person[:transactions].map do |value|
+      if value[:type] == 'COFFEE'
+      avg +=(value[:amount])
+      count +=1
+      end
+    end
+    p "#{ person[:name]}" "#{ (avg/= count).round}"
+    end
 
 
 
