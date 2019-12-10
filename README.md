@@ -167,20 +167,20 @@ coffee_average_per_person = []
 
 ### Answer
 
-coffee_average_per_person = []
-
 people.each do |human|
-sum = 0;
-human[:transactions].each do |amount|
-    #p amount[:type]
-    #p amount[:amount]
-    if amount[:type] == "COFFEE"
-        sum = sum+amount[:amount]
+    sum = 0
+    count = 0 ## Count the type which "COFFEE"
+    human[:transactions].each do |amount|
+        #p amount[:type]
+        #p amount[:amount]
+        if amount[:type] == "COFFEE"
+            sum = sum+amount[:amount]
+            count +=1
+        end
+    
     end
-
-end
-puts "#{human[:name]} : #{sum/3}"
-end
+    puts "#{human[:name]} : #{sum/=count}"
+    end
 
 # Output of the average somehow isnt correct ..
 
@@ -246,13 +246,20 @@ most_expensive_products_by_store = []
 
 
 stores.each do |name|
+    x = 0
     name[:products].each do |product|
-       ## if product[:price] is the greatest! then save it into a variable. 
-       # Then display the product name and price
+      product[:price]
+      
+      if product[:price] > x
+            x = product[:price]
+
+      end
 
     end
+    puts "#{name[:store_name]} has the highest price which is #{x} "
 
 end
+
 
 ```rb
 

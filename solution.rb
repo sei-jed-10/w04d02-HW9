@@ -16,6 +16,7 @@ students = [
 
 upper_case_full_names = []
 
+# Looped through the array of hashes and obtained the keys first name and last name and concatted them together.
 students.each do |name|
     puts "#{name[:first_name].upcase}" + " " + "#{name[:last_name].upcase}"
 end
@@ -60,6 +61,7 @@ users = [
   }
 ]
 
+# Not a dynamic solution, but got the index and key then printed out together
 first_order_for_each_user = []
 p1 = users[0][:orders][0]
 p2 = users[1][:orders][0]
@@ -127,21 +129,23 @@ people = [
 coffee_average_per_person = []
 
 people.each do |human|
-    sum = 0;
+    sum = 0
+    count = 0 ## Count the type which "COFFEE"
     human[:transactions].each do |amount|
         #p amount[:type]
         #p amount[:amount]
         if amount[:type] == "COFFEE"
             sum = sum+amount[:amount]
+            count +=1
         end
     
     end
-    puts "#{human[:name]} : #{sum/3}"
+    puts "#{human[:name]} : #{sum/=count}"
     end
     
-    # Output of the average somehow isnt correct ..
 
-## Question 4 missing the if statement..
+
+## Question 4 Solution
 stores = [
   {
       store_name: 'Jarir',
@@ -186,12 +190,19 @@ stores = [
 
 most_expensive_products_by_store = []
 
+## Initilized a variable x which will store the highest price in products array then print it out
 
 stores.each do |name|
+    x = 0
     name[:products].each do |product|
-       ## if product[:price] is the greatest! then save it into a variable. 
-       # Then display the product name and price
+      product[:price]
+      
+      if product[:price] > x
+            x = product[:price]
+
+      end
 
     end
+    puts "#{name[:store_name]} has the highest price which is #{x} "
 
 end
