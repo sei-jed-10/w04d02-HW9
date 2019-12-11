@@ -172,23 +172,18 @@ coffee_average_per_person = []
 
 ```rb
 
+ people.each do |a|
 amnt = 0
 num = 0
-avr =0
- 
-people.each do |a|  
-
 a[:transactions].map do |b|
-if b[:type] == 'COFFEE' then amnt += b[:amount] and num +=1
+ if b[:type] == 'COFFEE' 
+ amnt += (b[:amount]) 
+ num +=1
  end
-avr = amnt/num
-# puts b[:amount]
 end
-coffee_average_per_person.push("name => #{a[:name]},coffee_average=>#{avr}")
+coffee_average_per_person.push("name => #{a[:name]},coffee_average=>#{amnt/= num}")
 end
-
-
- puts  coffee_average_per_person
+ puts coffee_average_per_person
 
 
 {:name=>"Sarah", :coffee_average=>5.93}
@@ -259,7 +254,7 @@ m = a[:products].max_by do |p|
   p[:price]
 end
 
-most_expensive_products_by_store.push(":store_name=> #{a[:store_name]},:most_expensive_product=>#{m[:price]}")
+most_expensive_products_by_store.push(":store_name=> #{a[:store_name]},:description=> #{m[:description]},:most_expensive_product=>#{m[:price]}")
 end
 
 puts most_expensive_products_by_store
